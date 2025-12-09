@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <script src="taskpane.js"></script>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 15px;
+      }
+      h2 {
+        margin-bottom: 10px;
+      }
+      input {
+        font-size: 18px;
+        padding: 5px;
+      }
+      button {
+        font-size:16px;
+        padding:8px 14px;
+        margin-top:15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Выбор даты и времени</h2>
+
+    <label>Дата:</label><br>
+    <input type="date" id="date"><br><br>
+
+    <label>Время:</label><br>
+    <input type="time" id="time"><br>
+
+    <button onclick="insertDateTime()">Вставить</button>
+  </body>
+</html>

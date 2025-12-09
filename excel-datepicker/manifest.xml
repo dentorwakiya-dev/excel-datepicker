@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+           xsi:type="TaskPaneApp">
+
+  <Id>ce5c1f4e-a0fd-4b77-b1a5-date-picker</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Custom</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+
+  <DisplayName DefaultValue="DateTime Picker for Excel"/>
+  <Description DefaultValue="Всплывающий календарь с выбором даты и времени"/>
+
+  <IconUrl DefaultValue="https://img.icons8.com/?id=HBFWqKP64hS8&format=png&size=64"/>
+
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="taskpane.html"/>
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+
+    <Hosts>
+      <Host xsi:type="Workbook">
+
+        <DesktopFormFactor>
+          <FunctionFile resid="Commands.Url"/>
+
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+
+              <Group id="MyGroup" label="Дата/Время">
+                <Control xsi:type="Button" id="RunPickerButton">
+                  <Label resid="Commands.Label" />
+                  <Supertip>
+                    <Title resid="Commands.Label"/>
+                    <Description resid="Commands.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon16"/>
+                    <bt:Image size="32" resid="Icon32"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>openPicker</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+
+            </OfficeTab>
+          </ExtensionPoint>
+
+        </DesktopFormFactor>
+
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon16" DefaultValue="https://img.icons8.com/?id=HBFWqKP64hS8&format=png&size=16"/>
+        <bt:Image id="Icon32" DefaultValue="https://img.icons8.com/?id=HBFWqKP64hS8&format=png&size=32"/>
+      </bt:Images>
+
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="taskpane.html"/>
+      </bt:Urls>
+
+      <bt:ShortStrings>
+        <bt:String id="Commands.Label" DefaultValue="Выбрать дату"/>
+      </bt:ShortStrings>
+
+      <bt:LongStrings>
+        <bt:String id="Commands.Tooltip" DefaultValue="Открывает календарь"/>
+      </bt:LongStrings>
+
+    </Resources>
+
+  </VersionOverrides>
+
+</OfficeApp>
