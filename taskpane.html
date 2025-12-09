@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Date Picker</title>
+</head>
+
+<body style="font-family: Arial; padding: 20px">
+  <h3>Выберите дату:</h3>
+
+  <input type="date" id="dateInput" style="font-size: 18px; padding: 5px;" />
+  <br><br>
+
+  <button onclick="insertDate()" style="font-size: 16px; padding: 6px 12px;">
+    OK
+  </button>
+
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+  <script>
+    function insertDate() {
+      const d = document.getElementById("dateInput").value;
+      if (!d) return;
+
+      Office.onReady(() => {
+        Office.context.document.setSelectedDataAsync(d, (result) => {});
+      });
+    }
+  </script>
+</body>
+</html>
